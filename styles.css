@@ -4617,14 +4617,14 @@ textarea {
   }
 
   .section-portfolio .portfolio-grid:first-of-type .portfolio-media img {
-    aspect-ratio: auto;
+    aspect-ratio: 16 / 9;
     height: auto;
-    object-fit: contain;
-    object-position: center;
+    object-fit: cover;
+    object-position: center 20%;
   }
 
   .portfolio-lab-media .shot-frame {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 10;
   }
 
   .portfolio-lab-media .shot-frame img {
@@ -4635,13 +4635,13 @@ textarea {
   }
 
   .portfolio-lab-media .shot-frame.shot-store img {
-    transform: scale(1.24);
-    transform-origin: center top;
+    transform: none;
+    object-position: center 16%;
   }
 
   .portfolio-lab-media .shot-frame.shot-admin img {
-    transform: scale(1.08);
-    transform-origin: center top;
+    transform: none;
+    object-position: center 10%;
   }
 }
 
@@ -4717,15 +4717,17 @@ textarea {
   }
 
   .portfolio-lab-media .shot-frame {
-    aspect-ratio: 5 / 4;
+    aspect-ratio: 16 / 10;
   }
 
   .portfolio-lab-media .shot-frame.shot-store img {
-    transform: scale(1.3);
+    transform: none;
+    object-position: center 18%;
   }
 
   .portfolio-lab-media .shot-frame.shot-admin img {
-    transform: scale(1.12);
+    transform: none;
+    object-position: center 12%;
   }
 }
 
