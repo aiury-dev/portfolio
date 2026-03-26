@@ -188,8 +188,8 @@ function syncAmbientUi() {
     audioToggle.setAttribute(
       "aria-label",
       ambientEnabled
-        ? "Desativar música ambiente"
-        : "Ativar música ambiente baixa",
+        ? "Desativar musica ambiente"
+        : "Ativar musica ambiente baixa",
     );
   }
 
@@ -198,7 +198,7 @@ function syncAmbientUi() {
   }
 
   if (audioLabel) {
-    audioLabel.textContent = ambientEnabled ? "Áudio on" : "Áudio off";
+    audioLabel.textContent = ambientEnabled ? "Audio on" : "Audio off";
   }
 
   if (audioStatusMetrics) {
@@ -206,8 +206,8 @@ function syncAmbientUi() {
     audioStatusMetrics.setAttribute(
       "aria-label",
       ambientEnabled
-        ? "Desativar música ambiente"
-        : "Ativar música ambiente baixa",
+        ? "Desativar musica ambiente"
+        : "Ativar musica ambiente baixa",
     );
   }
 }
