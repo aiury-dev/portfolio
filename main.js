@@ -189,8 +189,8 @@ function syncAmbientUi() {
     audioToggle.setAttribute(
       "aria-label",
       ambientEnabled
-        ? "Desativar musica ambiente"
-        : "Ativar musica ambiente baixa",
+        ? "Desativar música ambiente"
+        : "Ativar música ambiente baixa",
     );
   }
 
@@ -207,8 +207,8 @@ function syncAmbientUi() {
     audioStatusMetrics.setAttribute(
       "aria-label",
       ambientEnabled
-        ? "Desativar musica ambiente"
-        : "Ativar musica ambiente baixa",
+        ? "Desativar música ambiente"
+        : "Ativar música ambiente baixa",
     );
   }
 }
