@@ -313,7 +313,11 @@ async function waitForAmbientPlayback(timeoutMs = 1800, tickMs = 120) {
 }
 
 async function setAmbientState(nextState, options = {}) {
-  const { optimistic = false } = options;
+  const {
+    optimistic = false,
+    userInitiated = false,
+    prewarm = false,
+  } = options;
   const playerReady = await ensureYouTubePlayer();
   if (!playerReady || !ytPlayer) {
     ambientEnabled = false;
@@ -324,6 +328,7 @@ async function setAmbientState(nextState, options = {}) {
   if (!nextState) {
     try {
       ytPlayer.pauseVideo();
+      ytPlayer.mute();
     } catch (_) {}
     ambientEnabled = false;
     syncAmbientUi();
@@ -333,8 +338,26 @@ async function setAmbientState(nextState, options = {}) {
   let isPlaying = false;
   try {
     ytPlayer.setVolume(YT_LOW_VOLUME);
-    ytPlayer.unMute();
     ytPlayer.playVideo();
+
+    if (prewarm && !userInitiated) {
+      ytPlayer.mute();
+      ambientEnabled = false;
+      syncAmbientUi();
+      return ambientEnabled;
+    }
+
+    if (userInitiated) {
+      ytPlayer.unMute();
+      if (optimistic) {
+        ambientEnabled = true;
+        syncAmbientUi();
+        return ambientEnabled;
+      }
+    } else {
+      ytPlayer.unMute();
+    }
+
     if (optimistic) {
       ambientEnabled = true;
       syncAmbientUi();
@@ -354,10 +377,15 @@ async function setAmbientState(nextState, options = {}) {
 function initAmbientControls() {
   syncAmbientUi();
 
+  // Preload player early in muted mode so first tap/click can reliably unmute on mobile.
+  ensureYouTubePlayer()
+    .then(() => setAmbientState(true, { prewarm: true }))
+    .catch(() => {});
+
   const tryAutoStart = () => {
     if (ambientManuallyControlled) return;
     if (ambientEnabled) return;
-    setAmbientState(true, { optimistic: false });
+    setAmbientState(true, { prewarm: true });
   };
 
   if (document.readyState === "complete") {
@@ -376,7 +404,10 @@ function initAmbientControls() {
 
   const toggleAmbientFromUser = () => {
     ambientManuallyControlled = true;
-    setAmbientState(!ambientEnabled, { optimistic: true });
+    setAmbientState(!ambientEnabled, {
+      optimistic: true,
+      userInitiated: true,
+    });
   };
 
   if (audioToggle) {
@@ -392,27 +423,38 @@ function initAmbientControls() {
     });
   }
 
+  const removeBootstrapListeners = () => {
+    document.removeEventListener("pointerdown", bootstrapAmbient);
+    document.removeEventListener("touchstart", bootstrapAmbient);
+    document.removeEventListener("click", bootstrapAmbient);
+  };
+
   const bootstrapAmbient = (event) => {
     if (audioToggle && audioToggle.contains(event.target)) return;
     if (audioStatusMetrics && audioStatusMetrics.contains(event.target)) return;
     if (ambientManuallyControlled) {
-      document.removeEventListener("pointerdown", bootstrapAmbient);
+      removeBootstrapListeners();
       return;
     }
     if (ambientEnabled) {
-      document.removeEventListener("pointerdown", bootstrapAmbient);
+      removeBootstrapListeners();
       return;
     }
     if (ambientBootstrapPending) return;
     ambientBootstrapPending = true;
-    setAmbientState(true, { optimistic: true }).then((started) => {
+    setAmbientState(true, {
+      optimistic: true,
+      userInitiated: true,
+    }).then((started) => {
       ambientBootstrapPending = false;
       if (started || ambientManuallyControlled) {
-        document.removeEventListener("pointerdown", bootstrapAmbient);
+        removeBootstrapListeners();
       }
     });
   };
   document.addEventListener("pointerdown", bootstrapAmbient, { passive: true });
+  document.addEventListener("touchstart", bootstrapAmbient, { passive: true });
+  document.addEventListener("click", bootstrapAmbient, { passive: true });
 
   document.addEventListener("visibilitychange", () => {
     if (!ytPlayer) return;
