@@ -282,7 +282,7 @@ function ensureYouTubePlayer() {
                 clearTimeout(failSafe);
                 try {
                   ytPlayer.setVolume(YT_LOW_VOLUME);
-                  ytPlayer.unMute();
+                  ytPlayer.mute();
                 } catch (_) {}
                 resolve(true);
               },
@@ -318,7 +318,18 @@ async function setAmbientState(nextState, options = {}) {
     userInitiated = false,
     prewarm = false,
   } = options;
-  const playerReady = await ensureYouTubePlayer();
+  if (nextState && userInitiated && ytPlayer) {
+    try {
+      ytPlayer.setVolume(YT_LOW_VOLUME);
+      ytPlayer.unMute();
+      ytPlayer.playVideo();
+      ambientEnabled = true;
+      syncAmbientUi();
+      return ambientEnabled;
+    } catch (_) {}
+  }
+
+  const playerReady = ytPlayer ? true : await ensureYouTubePlayer();
   if (!playerReady || !ytPlayer) {
     ambientEnabled = false;
     syncAmbientUi();
@@ -463,6 +474,7 @@ function initAmbientControls() {
         ytPlayer.pauseVideo();
       } else if (ambientEnabled) {
         ytPlayer.setVolume(YT_LOW_VOLUME);
+        ytPlayer.unMute();
         ytPlayer.playVideo();
       }
     } catch (_) {}
