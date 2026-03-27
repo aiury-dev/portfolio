@@ -27,7 +27,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Sora", sans-serif;
+  font-family: "Manrope", sans-serif;
   color: var(--text);
   line-height: 1.65;
   background:
@@ -135,7 +135,7 @@ img {
   border-radius: 999px;
   display: grid;
   place-items: center;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 0.95rem;
   color: rgba(243, 248, 255, 0.76);
   border: 1px solid rgba(255, 255, 255, 0.28);
@@ -426,7 +426,7 @@ img {
 
 .page-loader-kicker {
   margin: 0;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -436,7 +436,7 @@ img {
 
 .page-loader-logo {
   margin: 0.28rem 0 0;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: clamp(1.34rem, 2.5vw, 1.9rem);
   letter-spacing: -0.01em;
   color: rgba(235, 247, 255, 0.95);
@@ -456,7 +456,7 @@ img {
 
 .page-loader-word {
   margin: 0;
-  font-family: "Sora", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: clamp(1.25rem, 4.6vw, 2.9rem);
   line-height: 0.92;
   letter-spacing: 0.08em;
@@ -468,7 +468,7 @@ img {
   margin: 0;
   min-width: 92px;
   text-align: right;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: clamp(1.5rem, 3.4vw, 2.45rem);
   line-height: 1;
   letter-spacing: -0.03em;
@@ -841,7 +841,7 @@ footer,
 
 .status-center p {
   margin: 0;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.64rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -915,7 +915,7 @@ footer,
 }
 
 .logo {
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 700;
   font-size: 1.35rem;
   letter-spacing: -0.02em;
@@ -1102,7 +1102,7 @@ footer,
 }
 
 .mobile-menu a:not(.btn) {
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 1.5rem;
   border-bottom: 1px solid var(--line-soft);
   padding-bottom: 0.42rem;
@@ -1237,7 +1237,7 @@ main {
 
 .kicker {
   margin: 0;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.66rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1270,7 +1270,7 @@ main {
 
 h1 {
   margin: 0 0 0.25rem;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 700;
   font-size: clamp(1.95rem, 4.15vw, 4rem);
   line-height: 1.02;
@@ -1322,7 +1322,7 @@ h1 span {
 
 .manifesto-label {
   margin: 0 0 0.35rem;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.62rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1359,7 +1359,7 @@ h1 span {
 .hero-metrics b {
   display: block;
   margin-bottom: 0.25rem;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.62rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1471,7 +1471,7 @@ h1 span {
 
 .hero-panel-body h2 {
   margin: 0.4rem 0 0.9rem;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: clamp(1.4rem, 2.2vw, 2.05rem);
   line-height: 1.05;
 }
@@ -1523,7 +1523,7 @@ h1 span {
 
 .hero-lab h3 {
   margin: 0.4rem 0 0.8rem;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: clamp(1.05rem, 1.75vw, 1.45rem);
   line-height: 1.2;
   letter-spacing: -0.01em;
@@ -1545,7 +1545,7 @@ h1 span {
 .hero-lab-grid b {
   display: block;
   margin-bottom: 0.22rem;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.6rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1733,7 +1733,7 @@ h1 span {
 
 .keychain-tag p {
   margin: 0;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.6rem;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -1743,7 +1743,7 @@ h1 span {
 .keychain-tag strong {
   display: block;
   margin-top: 0.4rem;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 1.36rem;
   line-height: 0.95;
   letter-spacing: -0.02em;
@@ -1784,14 +1784,14 @@ h1 span {
 
 .floating-a {
   left: auto;
-  right: -152px;
-  top: 228px;
+  right: -112px;
+  top: 88px;
   animation: float-a 6s ease-in-out infinite;
 }
 
 .floating-b {
-  right: -152px;
-  top: 318px;
+  right: -112px;
+  top: 170px;
   animation: float-b 5.2s ease-in-out infinite;
 }
 
@@ -1815,7 +1815,7 @@ h1 span {
 
 .stats-grid strong {
   display: block;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 1.95rem;
   line-height: 0.9;
   color: var(--accent);
@@ -1829,7 +1829,7 @@ h1 span {
 
 .title {
   margin: 0;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: clamp(1.95rem, 4vw, 4rem);
   letter-spacing: -0.03em;
   line-height: 1.03;
@@ -1945,6 +1945,16 @@ h1 span {
   object-position: center top;
 }
 
+.portfolio-lab-media .shot-frame.shot-store img {
+  object-position: center 68%;
+  filter: brightness(1.16) contrast(1.1) saturate(1.06);
+}
+
+.portfolio-lab-media .shot-frame.shot-admin img {
+  object-position: center 62%;
+  filter: brightness(1.18) contrast(1.1) saturate(1.04);
+}
+
 .shot-badge {
   position: absolute;
   left: 0.8rem;
@@ -2003,7 +2013,7 @@ h1 span {
 
 .mock-shot-top span {
   margin-left: 0.45rem;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.58rem;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -2024,7 +2034,7 @@ h1 span {
 
 .mock-shot-body p {
   margin: 0;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: clamp(1.1rem, 2.1vw, 1.85rem);
   line-height: 1.06;
   max-width: 16ch;
@@ -2123,7 +2133,7 @@ h1 span {
 
 .portfolio-index {
   margin: 0;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.64rem;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -2132,7 +2142,7 @@ h1 span {
 
 .portfolio-content h3 {
   margin: 0.4rem 0 0.8rem;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 1.9rem;
   line-height: 1.05;
 }
@@ -2177,7 +2187,7 @@ h1 span {
 
 .portfolio-lab-head h3 {
   margin: 0.36rem 0 0.55rem;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: clamp(1.3rem, 2.4vw, 1.95rem);
   line-height: 1.06;
 }
@@ -2203,6 +2213,17 @@ h1 span {
   border-radius: 16px;
   background: var(--panel);
   padding: 0.85rem;
+}
+
+.portfolio-lab-media .shot-frame {
+  aspect-ratio: 16 / 10;
+}
+
+.portfolio-lab-media .shot-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 46%;
 }
 
 .portfolio-lab-info {
@@ -2265,7 +2286,7 @@ h1 span {
 
 .method-card h3 {
   margin: 0;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   color: rgba(126, 216, 255, 0.85);
 }
 
@@ -2332,7 +2353,7 @@ h1 span {
 .stack-chip text {
   fill: currentColor;
   font-size: 7px;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-weight: 700;
 }
 
@@ -2463,7 +2484,7 @@ h1 span {
 
 .service-copy h3 {
   margin: 0;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 1.65rem;
   line-height: 1.08;
 }
@@ -2545,7 +2566,7 @@ h1 span {
   position: absolute;
   left: 0.9rem;
   top: 0.35rem;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 3.8rem;
   line-height: 1;
   color: rgba(126, 216, 255, 0.18);
@@ -2580,7 +2601,7 @@ h1 span {
 
 .proof-numbers strong {
   display: block;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 1.85rem;
   line-height: 0.9;
   color: var(--gold);
@@ -2615,7 +2636,7 @@ h1 span {
 
 .final-cta h2 {
   margin: 0;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: clamp(1.8rem, 3vw, 3rem);
   line-height: 1.04;
 }
@@ -2644,7 +2665,7 @@ h1 span {
   display: block;
   margin-bottom: 0.2rem;
   color: var(--accent);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.64rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2701,7 +2722,7 @@ footer {
 
 footer h3 {
   margin: 0 0 0.7rem;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.65rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -3442,7 +3463,7 @@ body {
 
 .kicker {
   margin-bottom: 0.7rem;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   letter-spacing: 0.18em;
   font-size: 0.64rem;
   color: rgba(147, 220, 255, 0.92);
@@ -3684,7 +3705,7 @@ body {
 }
 
 .section-metrics .stats-grid strong {
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: clamp(1.55rem, 3.2vw, 2.3rem);
   line-height: 0.9;
 }
@@ -3734,7 +3755,7 @@ body {
 
 .portfolio-case-strip h3 {
   margin: 0.32rem 0 0.46rem;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: clamp(1.3rem, 2.6vw, 2rem);
   line-height: 1.04;
 }
@@ -3817,7 +3838,7 @@ body {
 
 .offer-label {
   margin: 0 0 0.45rem;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.62rem;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -3826,7 +3847,7 @@ body {
 
 .offer-card h3 {
   margin: 0;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: clamp(1.2rem, 2.4vw, 1.7rem);
   line-height: 1.04;
 }
@@ -3937,14 +3958,14 @@ body {
 }
 
 .section-testimonial .quote p {
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: clamp(1.45rem, 3.2vw, 2.3rem);
   line-height: 1.06;
   letter-spacing: -0.02em;
 }
 
 .section-testimonial .proof-numbers article strong {
-  font-family: "Bodoni Moda", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: clamp(1.65rem, 3.8vw, 2.45rem);
 }
 
@@ -3981,7 +4002,7 @@ body {
   position: absolute;
   right: 0.2rem;
   bottom: 0;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.56rem;
   letter-spacing: 0.2em;
   color: rgba(140, 197, 228, 0.44);
@@ -3989,7 +4010,7 @@ body {
 
 .section-contact .final-cta-railline {
   margin: 0.18rem 0 0.85rem;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.63rem;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -4060,7 +4081,7 @@ body {
 .section-contact .final-cta-mini-stats b {
   display: block;
   margin-bottom: 0.28rem;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.58rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -4087,7 +4108,7 @@ body {
   position: absolute;
   right: 0.72rem;
   top: 0.62rem;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.54rem;
   letter-spacing: 0.17em;
   color: rgba(146, 221, 255, 0.45);
@@ -4617,10 +4638,11 @@ textarea {
   }
 
   .section-portfolio .portfolio-grid:first-of-type .portfolio-media img {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
     height: auto;
     object-fit: cover;
-    object-position: center 20%;
+    object-position: center 14%;
+    filter: brightness(1.1) contrast(1.08) saturate(1.04);
   }
 
   .portfolio-lab-media .shot-frame {
@@ -4636,12 +4658,12 @@ textarea {
 
   .portfolio-lab-media .shot-frame.shot-store img {
     transform: none;
-    object-position: center 16%;
+    object-position: center 65%;
   }
 
   .portfolio-lab-media .shot-frame.shot-admin img {
     transform: none;
-    object-position: center 10%;
+    object-position: center 58%;
   }
 }
 
@@ -4722,12 +4744,12 @@ textarea {
 
   .portfolio-lab-media .shot-frame.shot-store img {
     transform: none;
-    object-position: center 18%;
+    object-position: center 67%;
   }
 
   .portfolio-lab-media .shot-frame.shot-admin img {
     transform: none;
-    object-position: center 12%;
+    object-position: center 62%;
   }
 }
 
@@ -4783,3 +4805,4 @@ textarea {
     gap: 0.35rem;
   }
 }
+

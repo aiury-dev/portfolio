@@ -24,6 +24,7 @@ const prefersReducedMotion = window.matchMedia(
 ).matches;
 let ambientEnabled = false;
 let ambientManuallyControlled = false;
+let ambientBootstrapPending = false;
 const YT_MUSIC_VIDEO_ID = "Y0plyNaxy30";
 const YT_LOW_VOLUME = 10;
 let ytPlayer = null;
@@ -296,26 +297,58 @@ function ensureYouTubePlayer() {
     .catch(() => false);
 }
 
-async function setAmbientState(nextState) {
+function getYtPlayerState() {
+  if (!ytPlayer || typeof ytPlayer.getPlayerState !== "function") return -1;
+  return ytPlayer.getPlayerState();
+}
+
+async function waitForAmbientPlayback(timeoutMs = 1800, tickMs = 120) {
+  const start = performance.now();
+  while (performance.now() - start < timeoutMs) {
+    const state = getYtPlayerState();
+    if (state === 1 || state === 3) return true;
+    await new Promise((resolve) => window.setTimeout(resolve, tickMs));
+  }
+  return false;
+}
+
+async function setAmbientState(nextState, options = {}) {
+  const { optimistic = false } = options;
   const playerReady = await ensureYouTubePlayer();
   if (!playerReady || !ytPlayer) {
     ambientEnabled = false;
     syncAmbientUi();
-    return;
+    return ambientEnabled;
   }
 
-  ambientEnabled = nextState;
+  if (!nextState) {
+    try {
+      ytPlayer.pauseVideo();
+    } catch (_) {}
+    ambientEnabled = false;
+    syncAmbientUi();
+    return ambientEnabled;
+  }
+
+  let isPlaying = false;
   try {
     ytPlayer.setVolume(YT_LOW_VOLUME);
     ytPlayer.unMute();
-    if (ambientEnabled) {
-      ytPlayer.playVideo();
-    } else {
-      ytPlayer.pauseVideo();
+    ytPlayer.playVideo();
+    if (optimistic) {
+      ambientEnabled = true;
+      syncAmbientUi();
+      return ambientEnabled;
     }
-  } catch (_) {}
+    isPlaying = await waitForAmbientPlayback(2600, 120);
+  } catch (_) {
+    isPlaying = false;
+  }
+
+  ambientEnabled = isPlaying;
 
   syncAmbientUi();
+  return ambientEnabled;
 }
 
 function initAmbientControls() {
@@ -324,7 +357,7 @@ function initAmbientControls() {
   const tryAutoStart = () => {
     if (ambientManuallyControlled) return;
     if (ambientEnabled) return;
-    setAmbientState(true);
+    setAmbientState(true, { optimistic: false });
   };
 
   if (document.readyState === "complete") {
@@ -343,7 +376,7 @@ function initAmbientControls() {
 
   const toggleAmbientFromUser = () => {
     ambientManuallyControlled = true;
-    setAmbientState(!ambientEnabled);
+    setAmbientState(!ambientEnabled, { optimistic: true });
   };
 
   if (audioToggle) {
@@ -366,8 +399,18 @@ function initAmbientControls() {
       document.removeEventListener("pointerdown", bootstrapAmbient);
       return;
     }
-    if (!ambientEnabled) setAmbientState(true);
-    document.removeEventListener("pointerdown", bootstrapAmbient);
+    if (ambientEnabled) {
+      document.removeEventListener("pointerdown", bootstrapAmbient);
+      return;
+    }
+    if (ambientBootstrapPending) return;
+    ambientBootstrapPending = true;
+    setAmbientState(true, { optimistic: true }).then((started) => {
+      ambientBootstrapPending = false;
+      if (started || ambientManuallyControlled) {
+        document.removeEventListener("pointerdown", bootstrapAmbient);
+      }
+    });
   };
   document.addEventListener("pointerdown", bootstrapAmbient, { passive: true });
 
